@@ -1,8 +1,17 @@
 {
-    "extends": [
-      "eslint:recommended"
-    ],
-    "rules": {
-      "no-use-before-define": ["error", { "functions": false }]
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
     }
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-use-before-define": ["error", { "functions": false }]
   }
+}

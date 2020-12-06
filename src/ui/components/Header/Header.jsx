@@ -1,7 +1,8 @@
 import React from 'react'
-import { HeaderWrapper, StyledTitle } from 'ui/components/Header/Header.styles'
+import { HeaderWrapper, TitleWrapper } from 'ui/components/Header/Header.styles'
 import { useHistory } from 'react-router-dom'
 import { routeProvider } from 'ui/utils/routerProvider'
+import { Text } from 'ui/components/Text/Text'
 
 export const Header = () => {
   const history = useHistory()
@@ -10,9 +11,11 @@ export const Header = () => {
 
   return (
     <HeaderWrapper>
-      <StyledTitle onClick={() => reedirectToHome()} textType="title">
-        Movile sales
-      </StyledTitle>
+      <TitleWrapper>
+        <Text onClick={() => reedirectToHome()} textType="title">
+          Movile sales
+        </Text>
+      </TitleWrapper>
     </HeaderWrapper>
   )
 }

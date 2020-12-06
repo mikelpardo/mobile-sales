@@ -5,12 +5,14 @@ import { routeProvider } from 'ui/utils/routerProvider'
 
 export const Header = () => {
   const history = useHistory()
-  
+
   const reedirectToHome = () => history.push(routeProvider.home)
 
   return (
     <HeaderWrapper>
-      <StyledTitle onClick={() => reedirectToHome()}>Movile sales</StyledTitle>
+      <StyledTitle onClick={() => reedirectToHome()} textType="title">
+        Movile sales
+      </StyledTitle>
     </HeaderWrapper>
   )
 }

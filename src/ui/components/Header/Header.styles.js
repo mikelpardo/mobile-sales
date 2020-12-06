@@ -1,14 +1,15 @@
 import styled from 'styled-components/macro'
 import { rem } from 'polished'
+import { sizes } from 'ui/theme/sizes'
 
 export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
 
-  padding: ${rem(10)};
+  padding: ${rem(sizes.xsmall)};
 `
 
-export const StyledTitle = styled.h1`
+export const TitleWrapper = styled.div`
   &:hover {
     cursor: pointer;
   }

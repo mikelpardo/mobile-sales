@@ -1,4 +1,4 @@
-export const aMovileListDto = (...options) => {
+export const aMobileListDto = (...options) => {
   const defaults = [
     {
       id: 'ZmGrkLRPXOTpxsU4jjAcv',
@@ -19,7 +19,7 @@ export const aMovileListDto = (...options) => {
   return Object.assign([], defaults, ...options)
 }
 
-export const aMovileList = (...options) => {
+export const aMobileList = (...options) => {
   const defaults = [
     {
       id: 'ZmGrkLRPXOTpxsU4jjAcv',

@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import { MovileList, MovileListWrapper } from 'ui/views/Home/Home.styles'
+import { MobileList, MobileListWrapper } from 'ui/views/Home/Home.styles'
 import { Searcher } from 'ui/views/Home/_components/Searcher/Searcher.jsx'
-import { MovileListItem } from 'ui/views/Home/_components/MovileListItem/MovileListItem.jsx'
-import { movileService } from 'core/services/Movile'
+import { MobileListItem } from 'ui/views/Home/_components/MobileListItem/MobileListItem.jsx'
+import { mobileService } from 'core/services/Mobile'
 
 export const Home = () => {
-  const [movileList, setMovileList] = useState([])
+  const [mobileList, setMobileList] = useState([])
 
   useEffect(() => {
     const loadData = async () => {
-      const moviles = await movileService.getAll()
-      setMovileList(moviles)
+      const mobiles = await mobileService.getAll()
+      setMobileList(mobiles)
     }
     loadData()
   }, [])
 
   return (
-    <MovileListWrapper>
+    <MobileListWrapper>
       <Searcher />
-      <MovileList>
-        {movileList.map(movile => (
-          <MovileListItem key={movile.id} movile={movile} />
+      <MobileList>
+        {mobileList.map(mobile => (
+          <MobileListItem key={mobile.id} mobile={mobile} />
         ))}
-      </MovileList>
-    </MovileListWrapper>
+      </MobileList>
+    </MobileListWrapper>
   )
 }

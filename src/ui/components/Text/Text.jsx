@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StyledTitle, StyledText } from 'ui/components/Text/Text.styles'
 
-export const Text = ({ textType, children }) => {
+export const Text = ({ textType = 'text', children }) => {
   if (textType === 'title') {
     return <StyledTitle>{children}</StyledTitle>
   }
@@ -12,5 +12,5 @@ export const Text = ({ textType, children }) => {
 
 Text.propTypes = {
   textType: PropTypes.string,
-  children: PropTypes.element
+  children: PropTypes.any
 }

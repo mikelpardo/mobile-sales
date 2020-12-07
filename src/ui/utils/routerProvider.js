@@ -1,4 +1,4 @@
 export const routeProvider = {
-    home: '/',
-    movileDetail: '/detail',
-  }
+  home: '/',
+  movileDetail: '/detail'
+}

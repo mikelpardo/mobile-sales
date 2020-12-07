@@ -10,6 +10,7 @@ export const MovileListItemWrapper = styled.div`
 export const StyledMovileListItem = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   width: 100%;
 
@@ -19,8 +20,16 @@ export const StyledMovileListItem = styled.div`
 `
 
 export const StyledImg = styled.img`
-  width: 200px;
-  height: 200px;
+  width: ${rem(sizes.scale(50))};
+  height: ${rem(sizes.scale(50))};
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: ${rem(sizes.xsmall)};
+`
+
+export const MovileDataWrapper = styled.div`
+  width: ${rem(sizes.scale(50))};
 
   margin-left: auto;
   margin-right: auto;

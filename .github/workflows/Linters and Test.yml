@@ -1,0 +1,22 @@
+name: Linters and Test
+on:
+  pull_request:
+    branches:
+      - '**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+    - name: Instalar dependencias
+      run: npm install
+    - name: Pasar prettier
+      run: npm run prettier
+    - name: Pasar test
+      run: npm run test

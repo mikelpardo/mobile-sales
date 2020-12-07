@@ -17,6 +17,6 @@ jobs:
     - name: Instalar dependencias
       run: npm install
     - name: Pasar prettier
-      run: npm run prettier
+      run: npm run lint
     - name: Pasar test
       run: npm run test

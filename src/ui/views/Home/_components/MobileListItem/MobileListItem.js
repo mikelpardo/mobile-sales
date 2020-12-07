@@ -2,12 +2,12 @@ import styled from 'styled-components/macro'
 import { rem } from 'polished'
 import { sizes } from 'ui/theme/sizes'
 
-export const MovileListItemWrapper = styled.div`
+export const MobileListItemWrapper = styled.div`
   display: flex;
   width: ${rem(sizes.scale(110))};
 `
 
-export const StyledMovileListItem = styled.div`
+export const StyledMobileListItem = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -28,7 +28,7 @@ export const StyledImg = styled.img`
   margin-bottom: ${rem(sizes.xsmall)};
 `
 
-export const MovileDataWrapper = styled.div`
+export const MobileDataWrapper = styled.div`
   width: ${rem(sizes.scale(50))};
 
   margin-left: auto;

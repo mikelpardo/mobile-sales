@@ -1,3 +1,3 @@
 export const apiRouteProvider = {
-  movileList: '/api/product'
+  mobileList: '/api/product'
 }

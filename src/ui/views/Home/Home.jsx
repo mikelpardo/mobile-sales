@@ -1,28 +1,42 @@
 import React, { useEffect, useState } from 'react'
-import { MovileList, MovileListWrapper } from 'ui/views/Home/Home.styles'
+import { MobileList, MobileListWrapper } from 'ui/views/Home/Home.styles'
 import { Searcher } from 'ui/views/Home/_components/Searcher/Searcher.jsx'
-import { MovileListItem } from 'ui/views/Home/_components/MovileListItem/MovileListItem.jsx'
-import { movileService } from 'core/services/Movile'
+import { MobileListItem } from 'ui/views/Home/_components/MobileListItem/MobileListItem.jsx'
+import { mobileService } from 'core/services/Mobile'
 
 export const Home = () => {
-  const [movileList, setMovileList] = useState([])
+  const [mobileList, setMobileList] = useState([])
+  const [searcherText, setSeacherText] = useState()
 
   useEffect(() => {
     const loadData = async () => {
-      const moviles = await movileService.getAll()
-      setMovileList(moviles)
+      const mobiles = await mobileService.getAll()
+      setMobileList(mobiles)
     }
     loadData()
   }, [])
 
+  const onSearchValueChange = event => setSeacherText(event.currentTarget.value.toUpperCase())
+
+  const filterMobileList = mobile =>
+    mobile.brand.toUpperCase().includes(searcherText) || mobile.model.toUpperCase().includes(searcherText)
+
+  const getMobileList = () => {
+    if (searcherText === '' || searcherText === undefined) {
+      return mobileList
+    }
+
+    return mobileList.filter(filterMobileList)
+  }
+
   return (
-    <MovileListWrapper>
-      <Searcher />
-      <MovileList>
-        {movileList.map(movile => (
-          <MovileListItem key={movile.id} movile={movile} />
+    <MobileListWrapper>
+      <Searcher onChange={onSearchValueChange} />
+      <MobileList>
+        {getMobileList().map(mobile => (
+          <MobileListItem key={mobile.id} mobile={mobile} />
         ))}
-      </MovileList>
-    </MovileListWrapper>
+      </MobileList>
+    </MobileListWrapper>
   )
 }

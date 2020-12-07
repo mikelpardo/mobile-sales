@@ -6,6 +6,7 @@ import { mobileService } from 'core/services/Mobile'
 
 export const Home = () => {
   const [mobileList, setMobileList] = useState([])
+  const [searcherText, setSeacherText] = useState()
 
   useEffect(() => {
     const loadData = async () => {
@@ -15,11 +16,24 @@ export const Home = () => {
     loadData()
   }, [])
 
+  const onSearchValueChange = event => setSeacherText(event.currentTarget.value.toUpperCase())
+
+  const filterMobileList = mobile =>
+    mobile.brand.toUpperCase().includes(searcherText) || mobile.model.toUpperCase().includes(searcherText)
+
+  const getMobileList = () => {
+    if (searcherText === '' || searcherText === undefined) {
+      return mobileList
+    }
+
+    return mobileList.filter(filterMobileList)
+  }
+
   return (
     <MobileListWrapper>
-      <Searcher />
+      <Searcher onChange={onSearchValueChange} />
       <MobileList>
-        {mobileList.map(mobile => (
+        {getMobileList().map(mobile => (
           <MobileListItem key={mobile.id} mobile={mobile} />
         ))}
       </MobileList>

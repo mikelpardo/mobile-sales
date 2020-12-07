@@ -8,11 +8,11 @@ export const aMobileListDto = (...options) => {
       imgUrl: 'https://front-test-api.herokuapp.com/images/ZmGrkLRPXOTpxsU4jjAcv.jpg'
     },
     {
-      id: 'cGjFJlmqNPIwU59AOcY8H',
-      brand: 'Acer',
-      model: 'Liquid Z6 Plus',
-      price: '250',
-      imgUrl: 'https://front-test-api.herokuapp.com/images/cGjFJlmqNPIwU59AOcY8H.jpg'
+      id: 'AasKFs5EGbyAEIKkcHQcF',
+      brand: 'alcatel',
+      model: 'Flash (2017)',
+      price: '',
+      imgUrl: 'https://front-test-api.herokuapp.com/images/AasKFs5EGbyAEIKkcHQcF.jpg'
     }
   ]
 
@@ -29,11 +29,11 @@ export const aMobileList = (...options) => {
       imgUrl: 'https://front-test-api.herokuapp.com/images/ZmGrkLRPXOTpxsU4jjAcv.jpg'
     },
     {
-      id: 'cGjFJlmqNPIwU59AOcY8H',
-      brand: 'Acer',
-      model: 'Liquid Z6 Plus',
-      price: '250',
-      imgUrl: 'https://front-test-api.herokuapp.com/images/cGjFJlmqNPIwU59AOcY8H.jpg'
+      id: 'AasKFs5EGbyAEIKkcHQcF',
+      brand: 'alcatel',
+      model: 'Flash (2017)',
+      price: '',
+      imgUrl: 'https://front-test-api.herokuapp.com/images/AasKFs5EGbyAEIKkcHQcF.jpg'
     }
   ]
 

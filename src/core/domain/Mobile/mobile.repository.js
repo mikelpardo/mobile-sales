@@ -1,33 +1,33 @@
 import { fontTestApiClient } from 'core/infrastructure/frontTestApiClient'
 import { apiRouteProvider } from 'core/infrastructure/apiRouteProvider'
 import { mapMobileDetailDtoToMobileDetail, mapMobileListDtoToMobileList } from 'core/domain/Mobile/mobile.mapper'
-import { cookieService } from 'core/services/Cookie/cookie.service'
+import { localStorageService } from 'core/services/LocalStorage/localStorage.service'
 
 const findAll = async () => {
-  const cookieValue = cookieService.get('findAll')
+  const storageData = localStorageService.get('findAll')
 
-  if (cookieValue !== '') {
-    return cookieValue
+  if (storageData !== undefined) {
+    return storageData
   }
 
   const mobileListDto = await fontTestApiClient.get(apiRouteProvider.mobileList)
   const mobileList = mapMobileListDtoToMobileList(mobileListDto)
 
-  cookieService.save('findAll', mobileList)
+  localStorageService.save('findAll', mobileList)
   return mobileList
 }
 
 const findDetail = async mobileId => {
-  const cookieValue = cookieService.get('findDetail')
+  const storageData = localStorageService.get(mobileId)
 
-  if (cookieValue !== '') {
-    return cookieValue
+  if (storageData !== undefined) {
+    return storageData
   }
 
   const mobileDetailDto = await fontTestApiClient.get(apiRouteProvider.mobileDetail(mobileId))
   const mobileDetail = mapMobileDetailDtoToMobileDetail(mobileDetailDto)
 
-  cookieService.save('findDetail', mobileDetail)
+  localStorageService.save(mobileId, mobileDetail)
   return mobileDetail
 }
 

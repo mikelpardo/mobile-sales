@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { StyledImage, MobileInfoWrapper, MobileDetailWrapper } from 'ui/views/MobileDetail/MobileDetail.styles'
+import {
+  StyledImage,
+  MobileInfoWrapper,
+  MobileDetailWrapper,
+  StyledMobileDetail
+} from 'ui/views/MobileDetail/MobileDetail.styles'
 import { AddCartInfo } from 'ui/views/MobileDetail/_components/AddCartInfo/AddCartInfo'
 import { MobileInfo } from 'ui/views/MobileDetail/_components/MobileInfo/MobileInfo'
 import PropTypes from 'prop-types'
@@ -26,15 +31,17 @@ export const MobileDetail = ({ mobileId }) => {
 
   return (
     <MobileDetailWrapper>
-      <StyledImage src={mobileDetail.imgUrl} />
-      <MobileInfoWrapper>
-        <MobileInfo mobileDetail={mobileDetail} />
-        <AddCartInfo
-          mobileId={mobileDetail.id}
-          colorOptions={mobileDetail.colorOptions}
-          storageOptions={mobileDetail.storageOptions}
-        />
-      </MobileInfoWrapper>
+      <StyledMobileDetail>
+        <StyledImage src={mobileDetail.imgUrl} />
+        <MobileInfoWrapper>
+          <MobileInfo mobileDetail={mobileDetail} />
+          <AddCartInfo
+            mobileId={mobileDetail.id}
+            colorOptions={mobileDetail.colorOptions}
+            storageOptions={mobileDetail.storageOptions}
+          />
+        </MobileInfoWrapper>
+      </StyledMobileDetail>
     </MobileDetailWrapper>
   )
 }

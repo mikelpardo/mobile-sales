@@ -21,6 +21,8 @@ export const Button = styled.button`
 
   cursor: pointer;
 
+  font-size: ${rem(sizes.small)};
+
   will-change: opacity;
   transition-delay: 0.05s;
 
@@ -36,6 +38,12 @@ export const Button = styled.button`
 
   background-color: cornflowerblue;
   transition: background-color 0.3s, color 0.3s;
+
+  ${p =>
+    p.disbaledButton &&
+    `background-color: lightgrey;
+    cursor: default;
+  `}
 `
 
 Button.propTypes = {

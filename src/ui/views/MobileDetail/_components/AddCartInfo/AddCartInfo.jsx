@@ -29,10 +29,14 @@ export const AddCartInfo = ({ mobileId, colorOptions, storageOptions }) => {
     }
   }
 
+  const canAddMobileToCart = () => selectedStorage !== '' && selectedColor !== ''
+
   const addToCart = async () => {
-    const mobileData = formatSelectedOptionsToMobileData()
-    const items = await cartService.add(mobileData)
-    cartContext.setItems(items.count)
+    if (canAddMobileToCart()) {
+      const mobileData = formatSelectedOptionsToMobileData()
+      const items = await cartService.add(mobileData)
+      cartContext.setItems(items.count)
+    }
   }
 
   return (
@@ -53,7 +57,9 @@ export const AddCartInfo = ({ mobileId, colorOptions, storageOptions }) => {
         onChange={setSelectedColor}
         placeHolder="Select a color option"
       />
-      <Button onClick={() => addToCart()}>Add to cart</Button>
+      <Button onClick={() => addToCart()} disbaledButton={!canAddMobileToCart()}>
+        Add to cart
+      </Button>
     </AddCartInfoWrapper>
   )
 }

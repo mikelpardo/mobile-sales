@@ -7,7 +7,8 @@ import {
   SelectField,
   Wrapper,
   FormFieldContainer,
-  Label
+  Label,
+  StyledOption
 } from 'ui/components/NativeSelect/NativeSelect.styles'
 import PropTypes from 'prop-types'
 
@@ -73,9 +74,9 @@ export const NativeSelect = ({ label, options, name, selectedValue, onChange, di
             {''}
           </EmptyOptionField>
           {options.map(option => (
-            <option key={option.value} value={option.value} disabled={option.disabled}>
+            <StyledOption key={option.value} value={option.value} disabled={option.disabled}>
               {option.text}
-            </option>
+            </StyledOption>
           ))}
         </SelectField>
         <Caption>

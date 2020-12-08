@@ -7,25 +7,28 @@ import { rem } from 'polished'
 import { Home } from 'ui/views/Home/Home'
 import { GlobalStyles } from 'ui/theme'
 import { MobileDetail } from 'ui/views/MobileDetail/MobileDetail'
+import { CartContextProvider } from 'ui/utils/cart.context'
 
 export const Root = () => {
   return (
-    <BrowserRouter>
-      <GlobalStyles />
-      <Container>
-        <Header />
-        <Switch>
-          <Route path={routeProvider.home} exact component={Home} />
-          <Route
-            path={routeProvider.mobileDetail.path}
-            exact
-            render={({ match: innerMatch }) => {
-              return <MobileDetail mobileId={innerMatch.params[routeProvider.mobileDetail.params.mobileId]} />
-            }}
-          />
-        </Switch>
-      </Container>
-    </BrowserRouter>
+    <CartContextProvider>
+      <BrowserRouter>
+        <GlobalStyles />
+        <Container>
+          <Header />
+          <Switch>
+            <Route path={routeProvider.home} exact component={Home} />
+            <Route
+              path={routeProvider.mobileDetail.path}
+              exact
+              render={({ match: innerMatch }) => {
+                return <MobileDetail mobileId={innerMatch.params[routeProvider.mobileDetail.params.mobileId]} />
+              }}
+            />
+          </Switch>
+        </Container>
+      </BrowserRouter>
+    </CartContextProvider>
   )
 }
 

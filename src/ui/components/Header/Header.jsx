@@ -12,10 +12,8 @@ export const Header = () => {
 
   return (
     <HeaderWrapper>
-      <TitleWrapper>
-        <Text onClick={() => reedirectToHome()} textType="title">
-          Mobile sales
-        </Text>
+      <TitleWrapper onClick={() => reedirectToHome()}>
+        <Text textType="title">Mobile sales</Text>
       </TitleWrapper>
       <CartIcon />
     </HeaderWrapper>

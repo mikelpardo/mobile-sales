@@ -15,7 +15,7 @@ export const HeaderWrapper = styled.div`
 export const TitleWrapper = styled.div`
   dislplay: flex;
   flex-direction: column;
-  
+
   &:hover {
     cursor: pointer;
   }

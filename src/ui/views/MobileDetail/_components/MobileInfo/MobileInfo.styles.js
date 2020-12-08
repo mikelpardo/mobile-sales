@@ -9,3 +9,7 @@ export const MobileInfoWrapper = styled.div`
 
   padding: ${rem(sizes.xsmall)};
 `
+
+export const StyledMobileInfo = styled.div`
+  display: flex;
+`

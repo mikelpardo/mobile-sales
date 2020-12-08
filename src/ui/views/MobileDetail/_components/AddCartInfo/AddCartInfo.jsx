@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button } from 'ui/components/Button'
 import { NativeSelect } from 'ui/components/NativeSelect'
 import { AddCartInfoWrapper } from 'ui/views/MobileDetail/_components/AddCartInfo/AddCartInfo.Styles'
 import PropTypes from 'prop-types'
 import { cartService } from 'core/services/Cart'
+import { CartContext } from 'ui/utils/cart.context'
 
 export const AddCartInfo = ({ mobileId, colorOptions, storageOptions }) => {
   const getOptionSelectedValue = options => {
@@ -16,6 +17,7 @@ export const AddCartInfo = ({ mobileId, colorOptions, storageOptions }) => {
 
   const [selectedStorage, setSelectedStorage] = useState(getOptionSelectedValue(storageOptions))
   const [selectedColor, setSelectedColor] = useState(getOptionSelectedValue(colorOptions))
+  const cartContext = useContext(CartContext)
 
   const formatOptions = options => options.map(option => ({ value: option.code, text: option.name }))
 
@@ -27,9 +29,14 @@ export const AddCartInfo = ({ mobileId, colorOptions, storageOptions }) => {
     }
   }
 
+  const canAddMobileToCart = () => selectedStorage !== '' && selectedColor !== ''
+
   const addToCart = async () => {
-    const mobileData = formatSelectedOptionsToMobileData()
-    await cartService.add(mobileData)
+    if (canAddMobileToCart()) {
+      const mobileData = formatSelectedOptionsToMobileData()
+      const items = await cartService.add(mobileData)
+      cartContext.setItems(items.count)
+    }
   }
 
   return (
@@ -50,7 +57,9 @@ export const AddCartInfo = ({ mobileId, colorOptions, storageOptions }) => {
         onChange={setSelectedColor}
         placeHolder="Select a color option"
       />
-      <Button onClick={() => addToCart()}>Add to cart</Button>
+      <Button onClick={() => addToCart()} disbaledButton={!canAddMobileToCart()}>
+        Add to cart
+      </Button>
     </AddCartInfoWrapper>
   )
 }

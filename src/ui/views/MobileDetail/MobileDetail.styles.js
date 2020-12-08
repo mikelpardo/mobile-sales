@@ -5,7 +5,6 @@ import { sizes } from 'ui/theme/sizes'
 export const MobileDetailWrapper = styled.div`
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
 
   padding: ${rem(sizes.xsmall)};
 `
@@ -22,4 +21,11 @@ export const StyledImage = styled.img`
   height: ${rem(sizes.scale(50))};
 
   padding: ${rem(sizes.xsmall)};
+`
+
+export const StyledMobileDetail = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
+  background-color: #f1f1f1;
 `

@@ -6,6 +6,9 @@ export const InputField = styled.input`
   width: 100%;
   height: ${rem(sizes.medium)};
 
+  font-size: ${rem(sizes.small)};
+  line-height: ${sizes.base / sizes.small};
+
   background-color: transparent;
   border: none;
   border-bottom: 1px solid black;

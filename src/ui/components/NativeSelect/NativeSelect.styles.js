@@ -96,3 +96,8 @@ export const Label = styled.span`
       top: 0;
     `}
 `
+
+export const StyledOption = styled.option`
+  font-size: ${rem(sizes.small)};
+  line-height: ${sizes.base / sizes.small};
+`

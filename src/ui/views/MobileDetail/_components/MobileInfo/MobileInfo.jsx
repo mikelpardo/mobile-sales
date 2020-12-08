@@ -1,21 +1,28 @@
 import React from 'react'
 import { Text } from 'ui/components/Text/Text'
 import { MobileInfoWrapper } from 'ui/views/MobileDetail/_components/MobileInfo/MobileInfo.styles'
+import PropTypes from 'prop-types'
 
-export const MobileInfo = () => {
+export const MobileInfo = ({ mobileDetail }) => {
+  const getCamerasInfo = () => `Primary ${mobileDetail.primaryCamera} Secondary ${mobileDetail.secondaryCmera}`
+
   return (
     <MobileInfoWrapper>
-      <Text>Marca asdkfjaskldfj akldfjaslfjlasdj akljdfklasjdfll laksjdfklasjdl</Text>
-      <Text>Modelo</Text>
-      <Text>Precio</Text>
-      <Text>CPU</Text>
-      <Text>RAM</Text>
-      <Text>Sistema operativo</Text>
-      <Text>Resolución de pantalla</Text>
-      <Text>Bateria</Text>
-      <Text>Camaras</Text>
-      <Text>Dimensiones</Text>
-      <Text>Peso</Text>
+      <Text>{mobileDetail.brand}</Text>
+      <Text>{mobileDetail.model}</Text>
+      <Text>{mobileDetail.price}</Text>
+      <Text>{mobileDetail.cpu}</Text>
+      <Text>{mobileDetail.ram}</Text>
+      <Text>{mobileDetail.os}</Text>
+      <Text>{mobileDetail.displayResolution}</Text>
+      <Text>{mobileDetail.battery}</Text>
+      <Text>{getCamerasInfo()}</Text>
+      <Text>{mobileDetail.dimentions}</Text>
+      <Text>{mobileDetail.weight}</Text>
     </MobileInfoWrapper>
   )
+}
+
+MobileInfo.propTypes = {
+  mobileDetail: PropTypes.object
 }

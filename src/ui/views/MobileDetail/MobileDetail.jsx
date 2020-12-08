@@ -29,7 +29,11 @@ export const MobileDetail = ({ mobileId }) => {
       <StyledImage src={mobileDetail.imgUrl} />
       <MobileInfoWrapper>
         <MobileInfo mobileDetail={mobileDetail} />
-        <AddCartInfo colorOptions={mobileDetail.colorOptions} storageOptions={mobileDetail.storageOptions} />
+        <AddCartInfo
+          mobileId={mobileDetail.id}
+          colorOptions={mobileDetail.colorOptions}
+          storageOptions={mobileDetail.storageOptions}
+        />
       </MobileInfoWrapper>
     </MobileDetailWrapper>
   )

@@ -7,7 +7,7 @@ import {
 } from 'core/domain/Mobile/__test__/mobile.builder'
 import { fontTestApiClient } from 'core/infrastructure/frontTestApiClient'
 
-describe('Mobile repository', () => {
+describe('Mobile repository test', () => {
   afterEach(() => {
     jest.restoreAllMocks()
   })

@@ -6,7 +6,8 @@ import {
   EmptyOptionField,
   SelectField,
   Wrapper,
-  FormFieldContainer
+  FormFieldContainer,
+  Label
 } from 'ui/components/NativeSelect/NativeSelect.styles'
 import PropTypes from 'prop-types'
 
@@ -51,9 +52,9 @@ export const NativeSelect = ({ label, options, name, selectedValue, onChange, di
   }
 
   const onSelectedOptionChange = event => {
-    setSelectedOption(event.currentTarget.value)
+    setSelectedOption(Number(event.currentTarget.value))
     if (onChange) {
-      onChange(event.currentTarget.value)
+      onChange(Number(event.currentTarget.value))
     }
     handleHasValue(true)
   }
@@ -61,6 +62,7 @@ export const NativeSelect = ({ label, options, name, selectedValue, onChange, di
   return (
     <FormFieldContainer>
       <Wrapper>
+        <Label elevated={hasValue}>{label}</Label>
         <SelectField
           data-testid={label}
           name={name}
@@ -89,7 +91,7 @@ NativeSelect.propTypes = {
   label: PropTypes.string,
   options: PropTypes.array,
   name: PropTypes.string,
-  selectedValue: PropTypes.string,
+  selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func,
   disabled: PropTypes.bool
 }

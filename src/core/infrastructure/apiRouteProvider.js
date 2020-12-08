@@ -1,4 +1,5 @@
 export const apiRouteProvider = {
   mobileList: '/api/product',
-  mobileDetail: mobileId => `/api/product/${mobileId}`
+  mobileDetail: mobileId => `/api/product/${mobileId}`,
+  addToCart: '/api/cart'
 }

@@ -69,3 +69,30 @@ export const SelectField = styled.select`
 export const EmptyOptionField = styled.option`
   display: none;
 `
+
+export const Label = styled.span`
+  position: absolute;
+  top: ${rem(sizes.base)};
+  left: 0;
+
+  display: block;
+  width: 100%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 2;
+
+  color: black;
+
+  font-weight: bold;
+
+  text-overflow: ellipsis;
+
+  transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+
+  ${p =>
+    p.elevated &&
+    `
+      top: 0;
+    `}
+`

@@ -4,6 +4,9 @@ import { sizes } from 'ui/theme/sizes'
 
 export const HeaderWrapper = styled.div`
   display: flex;
+
+  justify-content: space-between;
+
   align-items: center;
 
   padding: ${rem(sizes.xsmall)};

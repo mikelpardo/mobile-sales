@@ -31,21 +31,9 @@ export class AxiosApiClient {
         })
     })
   }
-
-  put(path, data) {
-    return new Promise((resolve, reject) => {
-      this.instance
-        .put(path, data)
-        .then(response => resolve(response.data))
-        .catch(error => {
-          reject(error)
-        })
-    })
-  }
 }
 
 AxiosApiClient.propTypes = {
   get: PropTypes.func,
-  post: PropTypes.func,
-  put: PropTypes.func
+  post: PropTypes.func
 }

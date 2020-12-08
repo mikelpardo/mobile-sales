@@ -1,12 +1,15 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { aMobileDetail } from 'core/domain/Mobile/__test__/mobile.builder'
+import { aMobileData } from 'core/domain/Cart/__test__/cart.builder'
 import { mobileService } from 'core/services/Mobile'
 import { MobileDetail } from 'ui/views/MobileDetail/MobileDetail'
+import { cartService } from 'core/services/Cart'
 
 describe('Mobile detail view tests', () => {
   beforeEach(() => {
     jest.spyOn(mobileService, 'getDetail').mockResolvedValue(aMobileDetail())
+    jest.spyOn(cartService, 'add').mockResolvedValue({ count: 1 })
   })
 
   afterEach(() => {
@@ -26,10 +29,22 @@ describe('Mobile detail view tests', () => {
     const colorSelector = await screen.findByTestId('Colors')
     expect(colorSelector).toBeDefined()
 
-    const storageSelector = await screen.findByTestId('Memory')
+    const storageSelector = await screen.findByTestId('Storage')
     expect(storageSelector).toBeDefined()
 
     const addCartButton = await screen.findByText('Add to cart')
     expect(addCartButton).toBeDefined()
+  })
+
+  it('sends mobile data to the cart', async () => {
+    render(<MobileDetail mobileId={'ZmGrkLRPXOTpxsU4jjAcv'} />)
+
+    const storageSelector = await screen.findByTestId('Storage')
+    fireEvent.change(storageSelector, { target: { value: aMobileDetail().storageOptions[0].code } })
+
+    const addCartButton = await screen.findByText('Add to cart')
+    fireEvent.click(addCartButton)
+
+    expect(cartService.add).toHaveBeenCalledWith(aMobileData())
   })
 })

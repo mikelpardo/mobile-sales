@@ -6,6 +6,7 @@ import styled from 'styled-components/macro'
 import { rem } from 'polished'
 import { Home } from 'ui/views/Home/Home'
 import { GlobalStyles } from 'ui/theme'
+import { MobileDetail } from 'ui/views/MobileDetail/MobileDetail'
 
 export const Root = () => {
   return (
@@ -15,6 +16,13 @@ export const Root = () => {
         <Header />
         <Switch>
           <Route path={routeProvider.home} exact component={Home} />
+          <Route
+            path={routeProvider.mobileDetail.path}
+            exact
+            render={({ match: innerMatch }) => {
+              return <MobileDetail mobileId={innerMatch.params[routeProvider.mobileDetail.params.mobileId]} />
+            }}
+          />
         </Switch>
       </Container>
     </BrowserRouter>

@@ -17,7 +17,7 @@ export const Header = () => {
           Mobile sales
         </Text>
       </TitleWrapper>
-      <CartIcon/>
+      <CartIcon />
     </HeaderWrapper>
   )
 }

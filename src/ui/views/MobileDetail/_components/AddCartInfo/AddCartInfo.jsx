@@ -29,8 +29,7 @@ export const AddCartInfo = ({ mobileId, colorOptions, storageOptions }) => {
 
   const addToCart = async () => {
     const mobileData = formatSelectedOptionsToMobileData()
-    const totalMobiles = await cartService.add(mobileData)
-    console.log(totalMobiles)
+    await cartService.add(mobileData)
   }
 
   return (

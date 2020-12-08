@@ -1,3 +1,4 @@
 export const apiRouteProvider = {
-  mobileList: '/api/product'
+  mobileList: '/api/product',
+  mobileDetail: mobileId => `/api/product/${mobileId}`
 }

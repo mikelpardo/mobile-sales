@@ -8,7 +8,7 @@ export const SearcherWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
 
-  margin-bottom: ${rem(sizes.small)};
+  margin-bottom: ${rem(sizes.base)};
 `
 
 export const StyledInput = styled.div`

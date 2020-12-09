@@ -4,8 +4,7 @@ import { sizes } from 'ui/theme/sizes'
 
 export const MobileListItemWrapper = styled.div`
   display: flex;
-  /* width: ${rem(sizes.scale(110))}; */
-  width: 23.7%;
+  width: ${rem(sizes.scale(110))};
 
   background-color: #f1f1f1;
 

@@ -1,6 +1,8 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Node version: 14.7.0
+Npm version: 6.14.7
 
 ## Available Scripts
 
@@ -28,3 +30,8 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm lint`
+
+Runs lint.\
+You will see any lint errors in the console.

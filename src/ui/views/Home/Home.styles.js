@@ -10,7 +10,7 @@ export const MobileList = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-  margin-top: -${rem(sizes.smbaseall)};
+  margin-top: -${rem(sizes.base)};
   margin-left: -${rem(sizes.base)};
 
   & > * {

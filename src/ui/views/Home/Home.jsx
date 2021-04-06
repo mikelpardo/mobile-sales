@@ -32,9 +32,7 @@ export const Home = () => {
 
   return (
     <MobileListWrapper>
-      <Text>
-          Pre production branch 2.0
-        </Text>
+      <Text>Pre production branch 2.0</Text>
       <Searcher onChange={onSearchValueChange} />
       <MobileList>
         {getMobileList().map(mobile => (

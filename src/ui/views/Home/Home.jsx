@@ -3,6 +3,7 @@ import { MobileList, MobileListWrapper } from 'ui/views/Home/Home.styles'
 import { Searcher } from 'ui/views/Home/_components/Searcher/Searcher.jsx'
 import { MobileListItem } from 'ui/views/Home/_components/MobileListItem/MobileListItem.jsx'
 import { mobileService } from 'core/services/Mobile'
+import { Text } from 'ui/components/Text/Text'
 
 export const Home = () => {
   const [mobileList, setMobileList] = useState([])
@@ -31,6 +32,9 @@ export const Home = () => {
 
   return (
     <MobileListWrapper>
+      <Text>
+          Pre production branch 2.0
+        </Text>
       <Searcher onChange={onSearchValueChange} />
       <MobileList>
         {getMobileList().map(mobile => (
